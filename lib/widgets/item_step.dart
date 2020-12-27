@@ -8,6 +8,7 @@ class ItemStep extends StatelessWidget {
   final DirectionAnimation orientation;
   final bool intermediate;
   final int delay;
+  final Widget child;
 
   const ItemStep(
       {Key key,
@@ -15,18 +16,20 @@ class ItemStep extends StatelessWidget {
       this.resize,
       this.orientation,
       this.delay,
+      this.child,
       this.intermediate = false})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: size.width * 0.47,
-      height: 80,
+      width: size.width * 0.48,
+      height: 90,
+      // color: Colors.red,
       child: Stack(
         children: [
           Positioned(
-            top: 38,
+            top: 41.5,
             right: this.orientation == DirectionAnimation.left ? 16 : null,
             left: this.orientation == DirectionAnimation.right ? 16 : null,
             child: FutureBuilder(
@@ -35,7 +38,7 @@ class ItemStep extends StatelessWidget {
                 return snapshot.connectionState == ConnectionState.done
                     ? AnimatedContainer(
                         duration: Duration(milliseconds: 200),
-                        height: this.resize ? 6 : 0,
+                        height: this.resize ? 2.5 : 0,
                         width: this.resize ? 24 : 0,
                         color: Colors.grey[300],
                       )
@@ -54,6 +57,7 @@ class ItemStep extends StatelessWidget {
                   ? Alignment.centerRight
                   : Alignment.centerLeft,
               delay,
+              child,
             ),
           ),
           Positioned(
@@ -67,14 +71,14 @@ class ItemStep extends StatelessWidget {
     );
   }
 
-  _buildItemStep(
-      BuildContext context, Size size, Alignment aligment, int duration) {
+  _buildItemStep(BuildContext context, Size size, Alignment aligment, int delay,
+      Widget child) {
     return FutureBuilder(
-      future: Future.delayed(Duration(milliseconds: duration)),
+      future: Future.delayed(Duration(milliseconds: delay)),
       builder: (context, snapshot) {
         return snapshot.connectionState == ConnectionState.done
             ? TweenAnimationBuilder<double>(
-                duration: Duration(milliseconds: 400),
+                duration: Duration(milliseconds: 200),
                 onEnd: () {},
                 tween: Tween(begin: 0.0, end: 1.0),
                 builder: (context, value, child) {
@@ -85,14 +89,15 @@ class ItemStep extends StatelessWidget {
                   );
                 },
                 child: Container(
-                  height: this.resize ? 80 : 0,
-                  width: this.resize ? size.width * 0.3 : 0,
+                  height: this.resize ? 90 : 0,
+                  width: this.resize ? size.width * 0.3 + 20 : 0,
                   decoration: BoxDecoration(
-                    color: Colors.grey[300],
+                    color: Colors.grey[200],
                     borderRadius: BorderRadius.all(
                       Radius.circular(6),
                     ),
                   ),
+                  child: child,
                 ),
               )
             : Container();

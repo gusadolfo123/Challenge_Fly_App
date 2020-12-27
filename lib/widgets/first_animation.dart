@@ -60,7 +60,7 @@ class _FirstAnimationState extends State<FirstAnimation> {
                 child: Container(
                   height: size.height,
                   width: size.width,
-                  margin: EdgeInsets.symmetric(horizontal: 20),
+                  margin: EdgeInsets.symmetric(horizontal: 14),
                   decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
@@ -71,8 +71,8 @@ class _FirstAnimationState extends State<FirstAnimation> {
                       ),
                     ],
                     borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(10),
                     ),
                     color: Colors.white,
                   ),

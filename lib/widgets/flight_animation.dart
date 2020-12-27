@@ -31,82 +31,340 @@ class _FlightAnimationState extends State<FlightAnimation>
 
     return SingleChildScrollView(
       child: Container(
-        height: size.height,
+        height: size.height - size.height * 0.3 + 20,
         child: Stack(
           alignment: Alignment.center,
           children: [
             AnimatedPositioned(
               duration: Duration(milliseconds: 400),
-              top: this.initialState ? size.height : 20,
+              top: this.initialState ? size.height : 10,
               child: PlaneAnimation(),
             ),
             AnimatedPositioned(
-              left: (size.width / 2) - 29,
-              top: this.initialState ? size.height : 100,
+              left: (size.width / 2) - 26,
+              top: this.initialState ? size.height : 50,
+              duration: Duration(milliseconds: 450),
               onEnd: () {},
-              child: Container(
-                width: size.width * 0.48,
-                height: 80,
-                child: ItemStep(
-                  resize: this.resize,
-                  size: size,
-                  orientation: DirectionAnimation.right,
-                  delay: 200,
+              child: ItemStep(
+                resize: this.resize,
+                size: size,
+                orientation: DirectionAnimation.right,
+                delay: 200,
+                child: Container(
+                  padding: EdgeInsets.all(6),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 4),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "MRG - ORY",
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.grey[600],
+                            ),
+                          ),
+                          Text(
+                            "6h 25m",
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.grey[600],
+                            ),
+                          ),
+                        ],
+                      ),
+                      Expanded(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "JUN 05",
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.grey[600],
+                              ),
+                            ),
+                            Text(
+                              "851",
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "9:26 am - 3:43 pm",
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey[600],
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 4),
+                    ],
+                  ),
                 ),
               ),
-              duration: Duration(milliseconds: 600),
             ),
             AnimatedPositioned(
-              top: this.initialState ? size.height : 160,
-              left: 0,
-              duration: Duration(milliseconds: 800),
+              top: this.initialState ? size.height : 120,
+              left: 6,
+              duration: Duration(milliseconds: 500),
               child: ItemStep(
                 orientation: DirectionAnimation.left,
                 resize: this.resize,
                 size: size,
                 intermediate: true,
-                delay: 300,
+                delay: 400,
+                child: Container(
+                  padding: EdgeInsets.all(6),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 4),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "MRG - ORY",
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.grey[600],
+                            ),
+                          ),
+                          Text(
+                            "6h 25m",
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.grey[600],
+                            ),
+                          ),
+                        ],
+                      ),
+                      Expanded(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "JUN 05",
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.grey[600],
+                              ),
+                            ),
+                            Text(
+                              "851",
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "9:26 am - 3:43 pm",
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey[600],
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 4),
+                    ],
+                  ),
+                ),
               ),
             ),
             AnimatedPositioned(
-              top: this.initialState ? size.height : 220,
-              left: (size.width / 2) - 29,
-              duration: Duration(milliseconds: 1000),
+              top: this.initialState ? size.height : 190,
+              left: (size.width / 2) - 26,
+              duration: Duration(milliseconds: 550),
               child: ItemStep(
                 orientation: DirectionAnimation.right,
                 resize: this.resize,
                 intermediate: true,
                 size: size,
-                delay: 400,
+                delay: 600,
+                child: Container(
+                  padding: EdgeInsets.all(6),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 4),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "MRG - ORY",
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.grey[600],
+                            ),
+                          ),
+                          Text(
+                            "6h 25m",
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.grey[600],
+                            ),
+                          ),
+                        ],
+                      ),
+                      Expanded(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "JUN 05",
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.grey[600],
+                              ),
+                            ),
+                            Text(
+                              "851",
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "9:26 am - 3:43 pm",
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey[600],
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 4),
+                    ],
+                  ),
+                ),
               ),
             ),
             AnimatedPositioned(
-              top: this.initialState ? size.height : 280,
-              left: 0,
+              top: this.initialState ? size.height : 260,
+              left: 6,
+              duration: Duration(milliseconds: 600),
               onEnd: () {
                 this.showContent = true;
                 this.resize = true;
                 setState(() {});
               },
-              duration: Duration(milliseconds: 1200),
               child: ItemStep(
                 orientation: DirectionAnimation.left,
                 resize: this.resize,
                 size: size,
-                delay: 500,
+                delay: 800,
+                child: Container(
+                  padding: EdgeInsets.all(6),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 4),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "MRG - ORY",
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.grey[600],
+                            ),
+                          ),
+                          Text(
+                            "6h 25m",
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.grey[600],
+                            ),
+                          ),
+                        ],
+                      ),
+                      Expanded(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "JUN 05",
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.grey[600],
+                              ),
+                            ),
+                            Text(
+                              "851",
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "9:26 am - 3:43 pm",
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey[600],
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 4),
+                    ],
+                  ),
+                ),
               ),
             ),
             Positioned(
-              bottom: 10,
-              child: FloatingActionButton(
-                backgroundColor: Colors.red,
-                child: Icon(Icons.bar_chart),
-                onPressed: () {
-                  this.initialState = !this.initialState;
-                  this.showContent = false;
-                  this.resize = false;
-                  setState(() {});
+              bottom: 20,
+              child: TweenAnimationBuilder<double>(
+                duration: Duration(milliseconds: 500),
+                tween: Tween(begin: 0, end: 1),
+                builder: (context, value, child) {
+                  return Transform.scale(
+                    scale: value,
+                    child: child,
+                  );
                 },
+                child: FloatingActionButton(
+                  backgroundColor: Colors.red,
+                  child: Icon(Icons.bar_chart),
+                  onPressed: () {
+                    this.initialState = !this.initialState;
+                    this.showContent = false;
+                    this.resize = false;
+                    setState(() {});
+                  },
+                ),
               ),
             )
           ],

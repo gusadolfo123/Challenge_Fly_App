@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const _planeSize = 30.0;
+const _planeSize = 40.0;
 
 class PlaneAnimation extends StatelessWidget {
   const PlaneAnimation({Key key}) : super(key: key);
@@ -17,17 +17,18 @@ class PlaneAnimation extends StatelessWidget {
           return Stack(
             children: [
               Positioned(
-                left: (constraints.maxWidth / 2) - (_planeSize / 2),
-                child: Icon(Icons.flight, color: Colors.red, size: _planeSize),
-              ),
-              Positioned(
-                top: 40,
-                left: (constraints.maxWidth / 2) - 5,
+                top: 20,
+                left: (constraints.maxWidth / 2) - 3,
                 child: Container(
                   color: Colors.grey[300],
-                  height: size.height,
-                  width: 10,
+                  // height: size.height,
+                  height: 280,
+                  width: 4,
                 ),
+              ),
+              Positioned(
+                left: (constraints.maxWidth / 2) - (_planeSize / 2),
+                child: Icon(Icons.flight, color: Colors.red, size: _planeSize),
               ),
             ],
           );

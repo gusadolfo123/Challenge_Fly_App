@@ -17,7 +17,9 @@ class HeaderButton extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(20))),
       child: Text(
         this.title.toUpperCase(),
-        style: TextStyle(color: this.isSelected ? Colors.red : Colors.white),
+        style: TextStyle(
+            color: this.isSelected ? Colors.red : Colors.white,
+            fontWeight: FontWeight.bold),
       ),
     );
   }
