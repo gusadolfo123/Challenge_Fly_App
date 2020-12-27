@@ -1,4 +1,5 @@
 import 'package:animaciones/widgets/flight_animation.dart';
+import 'package:animaciones/widgets/form_fly.dart';
 import 'package:flutter/material.dart';
 
 // class HeaderTab extends StatelessWidget {
@@ -85,8 +86,21 @@ class HeaderItemTab extends StatelessWidget {
 //   }
 // }
 
-class HeaderTab extends StatelessWidget {
+class HeaderTab extends StatefulWidget {
   const HeaderTab({Key key}) : super(key: key);
+
+  @override
+  _HeaderTabState createState() => _HeaderTabState();
+}
+
+class _HeaderTabState extends State<HeaderTab> {
+  int currentView = 1;
+
+  void changeView() {
+    setState(() {
+      currentView = 2;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +139,12 @@ class HeaderTab extends StatelessWidget {
           Expanded(
             child: TabBarView(
               children: [
-                FlightAnimation(),
+                AnimatedSwitcher(
+                  duration: Duration(milliseconds: 500),
+                  child: currentView == 1
+                      ? FormFly(onChange: changeView)
+                      : FlightAnimation(),
+                ),
                 Icon(Icons.directions_transit),
                 Icon(Icons.directions_bike),
               ],

@@ -16,13 +16,22 @@ class _FlightAnimationState extends State<FlightAnimation>
   bool initialState = true;
   bool showContent = false;
   bool resize = false;
+  bool showButton = false;
+
+  void initAnimation() async {
+    await Future.delayed(Duration(microseconds: 1000));
+    setState(() {
+      this.initialState = !this.initialState;
+      this.showContent = false;
+      this.resize = false;
+      this.showButton = false;
+    });
+  }
 
   @override
   void initState() {
+    initAnimation();
     super.initState();
-    this.initialState = true;
-    this.showContent = false;
-    this.resize = false;
   }
 
   @override
@@ -272,6 +281,7 @@ class _FlightAnimationState extends State<FlightAnimation>
               onEnd: () {
                 this.showContent = true;
                 this.resize = true;
+                this.showButton = true;
                 setState(() {});
               },
               child: ItemStep(
@@ -346,27 +356,36 @@ class _FlightAnimationState extends State<FlightAnimation>
             ),
             Positioned(
               bottom: 20,
-              child: TweenAnimationBuilder<double>(
-                duration: Duration(milliseconds: 500),
-                tween: Tween(begin: 0, end: 1),
-                builder: (context, value, child) {
-                  return Transform.scale(
-                    scale: value,
-                    child: child,
-                  );
+              child: FutureBuilder(
+                future: Future.delayed(Duration(milliseconds: 1000)),
+                builder: (context, snapshot) {
+                  print(snapshot.connectionState);
+                  return snapshot.connectionState == ConnectionState.done
+                      ? TweenAnimationBuilder<double>(
+                          duration: Duration(milliseconds: 200),
+                          tween: Tween(begin: 0, end: 1),
+                          builder: (context, value, child) {
+                            return Transform.scale(
+                              scale: value,
+                              child: child,
+                            );
+                          },
+                          child: FloatingActionButton(
+                            backgroundColor: Colors.red,
+                            child: Icon(Icons.check_rounded),
+                            onPressed: () {
+                              this.initialState = !this.initialState;
+                              this.showContent = false;
+                              this.resize = false;
+                              this.showButton = false;
+                              setState(() {});
+                            },
+                          ),
+                        )
+                      : Container();
                 },
-                child: FloatingActionButton(
-                  backgroundColor: Colors.red,
-                  child: Icon(Icons.bar_chart),
-                  onPressed: () {
-                    this.initialState = !this.initialState;
-                    this.showContent = false;
-                    this.resize = false;
-                    setState(() {});
-                  },
-                ),
               ),
-            )
+            ),
           ],
         ),
       ),
